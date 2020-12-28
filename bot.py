@@ -15,7 +15,7 @@ def add_text(quote,x,y,color):
     fnt = ImageFont.truetype("arb.ttf", 25)
     im = Image.open("quote.png")
     dr = ImageDraw.Draw(im)
-    dr.text((x,y),quote, font=fnt, fill=(color,color,color),anchor="mb", align="center")
+    dr.text((x,y),quote, font=fnt, fill=(color,color,color), align="center")
     im.save("quote.png")
 
 def gen_quote():
