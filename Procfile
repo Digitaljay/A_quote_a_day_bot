@@ -1,1 +1,1 @@
-web: python -Dserver.port=${PORT:33500} bot.py
+worker: python bot.py
