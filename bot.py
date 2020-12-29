@@ -9,7 +9,7 @@ def background():
     r,g,b=random.randint(1,256), random.randint(1,256), random.randint(1,256)
     im = Image.new("RGB", (700, 700), (r,g,b))
     im.save("quote.png", "PNG")
-    return r+g+b>384
+    return r>160 or g>160 or b>160
 
 def add_text(quote,x,y,color):
     fnt = ImageFont.truetype("arb.ttf", 25)
@@ -35,8 +35,9 @@ def spliter(quote):
 
 def quote_pict():
     fill=background()
-    add_text(spliter(gen_quote()[0]),20,20,fill*256)
-    add_text(spliter(gen_quote()[1]),400,650,fill*256)
+    q, author = gen_quote()
+    add_text(spliter(q),20,20,fill*256)
+    add_text(spliter(author+"\n                                               "),400,650,fill*256)
 
 f=open("config.txt")
 token = f.readline().strip()
