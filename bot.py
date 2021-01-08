@@ -7,7 +7,7 @@ import time
 
 def background():
     r,g,b=random.randint(1,256), random.randint(1,256), random.randint(1,256)
-    im = Image.new("RGB", (700, 700), (r,g,b))
+    im = Image.new("RGB", (700, 1000), (r,g,b))
     im.save("quote.png", "PNG")
     return r>160 or g>160 or b>160
 
@@ -37,7 +37,7 @@ def quote_pict():
     fill=background()
     q, author = gen_quote()
     add_text(spliter(q),20,20,fill*256)
-    add_text(spliter(author+"\n                                               "),400,650,fill*256)
+    add_text(spliter(author+"\n                                               "),20,950,fill*256)
 
 f=open("config.txt")
 token = f.readline().strip()
@@ -56,7 +56,7 @@ class Bot():
 
 bot=Bot(token)
 quote_pict()
-time.sleep(8*60*60)
+time.sleep(12*60*60)
 
 while True:
     quote_pict()
